@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+			
+		.cajah1 {
+            background-color: transparent;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            min-height: 100px;
+            box-sizing: border-box;
+            font-family: 'Ballet', cursive;
+            font-size: 159px;
+            text-transform: none;
+            margin-top: 300px;
+            line-height: 0.8;
+            position: relative;
+            z-index: 2;
+            font-weight: normal;}
+			
+		.events-imágenes {
+			display: flex;
+			flex-direction: row;
+			padding: 40px 5% 50px 5%;
+			gap: 50px;
+			align-items: flex-start;
+			max-width: 1600px;}
+
+		.carrusel-container {
+			flex: 0 0 40%;;
+			position: relative;
+			min-width: 0;}
+
+		.slides {
+			display: flex;
+			overflow-x: scroll;
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			height: auto;}
+
+		.slide {
+			flex: 0 0 100%;
+			scroll-snap-align: start;
+			scroll-margin-top: 100vh; 
+			scroll-margin-left: 0;}
+
+		.slide img {
+			width: 100%;
+			height: auto;
+			display: block;}
+			
+		.slide video {
+			width: 100%;
+			height: auto;
+			display: block;}
+
+		.botones-nav {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			margin-top: 15px;}
+
+		.botones-nav a {
+			width: 12px;
+			height: 12px;
+			background-color: black;
+			border-radius: 50%;
+			text-decoration: none;
+			transition: 0.3s;}
+
+		.botones-nav a:hover {
+			background-color: #880808;}
+
+		.título-events {
+			font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: black;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            padding: 0;}
+			
+		.texto-events {
+			flex: 0 0 60%;
+			min-width: 200px;}
+		
+		.texto-events p {
+			font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: black;
+            text-align: left;
+            padding: 0px;
+            margin-bottom: 20px;}
+			
+		@media (max-width: 768px){
+		.cajah1 {
+			font-size: 60px;
+			margin-top: 200px;
+			padding: 0 10px;
+			text-align: center;}
+	
+		.cajatítulo {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			padding-top: 100px;
+			align-items: center;
+			position: relative;
+			gap: 20px;}
+
+		.izquierda, .derecha {
+        display: contents;}
+
+		.izquierda p:nth-of-type(1) { order: 1; }
+		.izquierda p:nth-of-type(2) { order: 2; }
+		.derecha p { order: 3; }
+		.desplegable { order: 4; }
+
+		.izquierda p a, .derecha p a, .desplegable p b {
+			padding: 0;
+			margin: 0;}
+
+		.izquierda p, .derecha p, .desplegable p {
+			margin: 0;
+			padding: 0;
+			line-height: 1;
+			display: flex;
+			justify-content: center;}
+
+		.logo-viridiana {
+			position: absolute;
+			top: 20px;
+			height: 60px;
+			left: 50%;
+			transform: translateX(-50%);}
+
+		.contenido-desplegable {
+			position: relative; 
+			display: none; 
+			width: 100%;
+			transform: none;
+			left: 0;
+			padding-top: 10px;}
+			
+		.desplegable:active .contenido-desplegable,
+		.desplegable:hover .contenido-desplegable {
+			display: block;}
+			
+		.texto-events {
+			width: 90%;
+			max-width: none;
+			padding: 0 5%;
+			margin: 20px auto;
+			text-align: left;
+			box-sizing: border-box;} 
+
+		.texto-events p {
+			font-size: 11px;
+			line-height: 1.6;
+			margin-bottom: 20px;}}
+
+	</style>
+</head>
+<body>
+
+    <div class="cajatítulo">
+        <div class="izquierda">
+            <p><a href="ABOUT.html">ABOUT</a></p>
+            <div class="desplegable">
+                <p><b>ARTWORKS</b></p>
+                <div class="contenido-desplegable">
+                    <a href="GRAPHIC_ART.html">GRAPHIC ART</a>
+                    <a href="PERFORMANCE.html">PERFORMANCE</a>
+                </div>
+            </div>
+            <p><a href="EVENTS.html">EVENTS</a></p>
+        </div>
+        <div class="centro">
+            <a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a>
+        </div>
+        <div class="derecha">
+            <p><a href="CONTACT.html">CONTACT</a></p>
+        </div>
+    </div>
+	
+	<h1 class="cajah1">Events</h1>
+	
+	<div class="events-imágenes">
+		<div class="carrusel-container">
+			<div class="slides" id="slides1">
+				<div class="slide" id="foto1"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_1.jpg" alt="ENTIÉNDEME_1"></div>
+				<div class="slide" id="foto2"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_2.jpg" alt="ENTIÉNDEME_2"></div>
+				<div class="slide" id="foto3"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_3.jpeg" alt="ENTIÉNDEME_3"></div>
+				<div class="slide" id="foto4"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_4.jpeg" alt="ENTIÉNDEME_4"></div>
+				<div class="slide" id="foto5"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_5.jpeg" alt="ENTIÉNDEME_5"></div>
+				<div class="slide" id="foto6"><img src="EVENTS/ENTIÉNDEME/ENTIÉNDEME_6.jpeg" alt="ENTIÉNDEME_6"></div>
+			</div>
+			
+			<div class="botones-nav">
+				<a href="#foto1"></a>
+				<a href="#foto2"></a>
+				<a href="#foto3"></a>
+				<a href="#foto4"></a>
+				<a href="#foto5"></a>
+				<a href="#foto6"></a>
+			</div>
+		</div>
+
+		<div class="texto-events">
+			<h2 class="titulo-events">“Entiéndeme Tú a Mi” - 2023-2025</h2>
+			<p>Entiéndeme tú a mí is a performative work that challenges adults—parents, caregivers, and educators—to confront what they do not understand about young people,
+			exposing how failed communication stems from a lack of emotional education and pedagogical awareness. The piece creates an intimate space where empathy, respect,
+			listening, acceptance, and unconditional love become urgent tools for coexistence, proposing dialogue as a means to access what lies beneath behavior: emotions, 
+			needs, and unspoken conflicts. Addressing mental health, sexuality, academic performance, technology, relationships, independence, and responsibility as interconnected
+			experiences rather than isolated problems, the work offers adults a way to step back from control and allow children, adolescents, and young adults to be themselves,
+			suggesting that mutual understanding is not only a social necessity but a fundamental act of care for collective mental well-being.</p>
+		</div>
+	</div>
+	
+	<div class="events-imágenes">
+		<div class="carrusel-container">
+			<div class="slides" id="slides2">
+				<div class="slide" id="foto7"><img src="EVENTS/JARDÍN/JARDÍN_MEKÁNICO_1.jpg" alt="JARDÍN_MEKÁNICO_1"></div>
+				<div class="slide" id="foto8"><img src="EVENTS/JARDÍN/JARDÍN_MEKÁNICO_2.jpg" alt="JARDÍN_MEKÁNICO_2"></div>
+				<div class="slide" id="foto9"><img src="EVENTS/JARDÍN/JARDÍN_MEKÁNICO_3.jpeg" alt="JARDÍN_MEKÁNICO_3"></div>
+				<div class="slide" id="foto10"><img src="EVENTS/JARDÍN/JARDÍN_MEKÁNICO_4.jpeg" alt="JARDÍN_MEKÁNICO_4"></div>
+			</div>
+			
+			<div class="botones-nav">
+				<a href="#foto7"></a>
+				<a href="#foto8"></a>
+				<a href="#foto9"></a>
+				<a href="#foto10"></a>
+			</div>
+		</div>
+
+		<div class="texto-events">
+			<h2 class="titulo-events">“El Jardín Mekánico” - December 20th, 2025</h2>
+			<p>In December 2025, Viridiana showcased her work at "El Jardín Mekánico," a vibrant cultural takeover held at Espacio Colectivo Vía Láctea in Zaragoza
+			This "Anti-Xmas Market Edition"—a collaboration between La Meka Kollective and La Fleur de L’Homme—was conceived as a creative sanctuary to challenge traditional holiday commercialism.
+			Within this space dedicated to independent art, music, and community, Viridiana presented her latest pieces, contributing to an atmosphere that prioritized authentic expression over mass
+			consumption. The event served as a dynamic platform for her to connect with the local creative scene, blending her artistic vision with the underground and independent
+			spirit of the collective.</p>
+		</div>
+	</div>
+	
+	<div class="events-imágenes">
+		<div class="carrusel-container">
+			<div class="slides" id="slides3">
+				<div class="slide" id="foto11"><img src="EVENTS/GARRA/GARRA_1.jpg" alt="GARRA_1"></div>
+                <div class="slide" id="video1"><video autoplay muted loop playsinline><source src="EVENTS/GARRA/GARRA_2.mp4" type="video/mp4"></video></div>
+				<div class="slide" id="foto12"><img src="EVENTS/GARRA/GARRA_3.JPG" alt="GARRA_3"></div>
+            </div>
+		
+			<div class="botones-nav">
+				<a href="#foto11"></a>
+				<a href="#video1"></a>
+				<a href="#foto12"></a>
+			</div>
+		</div>
+		
+		<div class="texto-events">
+			<h2 class="titulo-events">“Garra Out of Office” - September 19th, 2025</h2>
+			<p>In September, Viridiana participated in a collective exhibition hosted by Garra Collective at the ESDA (Escuela Superior de Diseño de Aragón). As part of the "Garra Out of Office"
+			event, she joined a curated group of young Aragonese artists to showcase their work in the school's main exhibition hall.
+			The event kicked off on September 19th with an official inauguration, highlighting the fresh perspectives of emerging local talent.
+			beyond the gallery walls, the initiative transformed the ESDA terrace into a creative hub featuring over 20 local projects spanning illustration,
+			fashion, jewelry, and self-publishing. This exhibition allowed Viridiana to integrate her artistic practice into a dynamic multidisciplinary environment,
+			elebrating the vibrant cultural and design scene of Zaragoza</p>
+		</div>
+		
+	</div>
+	
+	

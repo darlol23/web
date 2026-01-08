@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+			
+		.cajah1 {
+            background-color: transparent;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            min-height: 100px;
+            box-sizing: border-box;
+            font-family: 'Ballet', cursive;
+            font-size: 159px;
+            text-transform: none;
+            margin-top: 300px;
+            line-height: 0.8;
+            position: relative;
+            z-index: 2;
+            font-weight: normal;}
+			
+		.performance-imágenes {
+			display: flex;
+			flex-direction: row;
+			padding: 200px 5% 50px 5%;
+			gap: 50px;
+			align-items: flex-start;
+			max-width: 1600px;}
+
+		.carrusel-container {
+			flex: 0 0 40%;;
+			position: relative;
+			min-width: 0;}
+
+		.slides {
+			display: flex;
+			overflow-x: scroll;
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;}
+
+		.slide {
+			flex: 0 0 100%;
+			scroll-snap-align: start;}
+
+		.slide img {
+			width: 100%;
+			height: auto;
+			display: block;}
+
+		.botones-nav {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			margin-top: 15px;}
+
+		.botones-nav a {
+			width: 12px;
+			height: 12px;
+			background-color: black;
+			border-radius: 50%;
+			text-decoration: none;
+			transition: 0.3s;}
+
+		.botones-nav a:hover {
+			background-color: #880808;}
+
+		.título-performance {
+			font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: black;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            padding: 0;}
+			
+		.texto-performance {
+			flex: 0 0 60%;
+			min-width: 200px;}
+		
+		.texto-performance p {
+			font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: black;
+            text-align: left;
+            padding: 0px;
+            margin-bottom: 20px;}
+
+		@media (max-width: 768px){
+		.cajah1 {
+			font-size: 60px;
+			margin-top: 120px;
+			padding: 0 10px;
+			text-align: center;}
+	
+		.cajatítulo {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			padding-top: 100px;
+			align-items: center;
+			position: relative;
+			gap: 20px;}
+
+		.izquierda, .derecha {
+        display: contents;}
+
+		.izquierda p:nth-of-type(1) { order: 1; }
+		.izquierda p:nth-of-type(2) { order: 2; }
+		.derecha p { order: 3; }
+		.desplegable { order: 4; }
+
+		.izquierda p a, .derecha p a, .desplegable p b {
+			padding: 0;
+			margin: 0;}
+
+		.izquierda p, .derecha p, .desplegable p {
+			margin: 0; 
+			padding: 0;
+			line-height: 1;
+			display: flex;
+			justify-content: center;}
+
+		.logo-viridiana {
+			position: absolute;
+			top: 20px;
+			height: 60px;
+			left: 50%;
+			transform: translateX(-50%);}
+
+		.contenido-desplegable {
+			position: relative; 
+			display: none; 
+			width: 100%;
+			transform: none;
+			left: 0;
+			padding-top: 10px;}
+			
+		.desplegable:active .contenido-desplegable,
+		.desplegable:hover .contenido-desplegable {
+			display: block;}
+			
+		.texto-performance {
+			width: 90%;
+			max-width: none;
+			padding: 0 5%;
+			margin: 20px auto;
+			text-align: left;
+			box-sizing: border-box;}
+
+		.texto-performance p {
+			font-size: 11px;
+			line-height: 1.6;
+			margin-bottom: 20px;}
+			
+		.performance-imágenes {
+			padding-top: 20px;
+			flex-direction: column;}}
+			
+	</style>
+</head>
+<body>
+
+    <div class="cajatítulo">
+        <div class="izquierda">
+            <p><a href="ABOUT.html">ABOUT</a></p>
+            <div class="desplegable">
+                <p><b>ARTWORKS</b></p>
+                <div class="contenido-desplegable">
+                    <a href="GRAPHIC_ART.html">GRAPHIC ART</a>
+                    <a href="PERFORMANCE.html">PERFORMANCE</a>
+                </div>
+            </div>
+            <p><a href="EVENTS.html">EVENTS</a></p>
+        </div>
+        <div class="centro">
+             <a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a>
+        </div>
+        <div class="derecha">
+            <p><a href="CONTACT.html">CONTACT</a></p>
+        </div>
+    </div>
+	
+	<h1 class="cajah1">Performance</h1>
+	
+	<div class="performance-imágenes">
+    <div class="carrusel-container">
+        <div class="slides" id="slides">
+            <div class="slide" id="foto1"><img src="PERFORMANCE/PERFORMANCE_1.jpg" alt="PERFORMANCE_1"></div>
+            <div class="slide" id="foto2"><img src="PERFORMANCE/PERFORMANCE_2.jpg" alt="PERFORMANCE_2"></div>
+            <div class="slide" id="foto3"><img src="PERFORMANCE/PERFORMANCE_3.jpg" alt="PERFORMANCE_3"></div>
+			<div class="slide" id="foto4"><img src="PERFORMANCE/PERFORMANCE_4.jpg" alt="PERFORMANCE_4"></div>
+			<div class="slide" id="foto5"><img src="PERFORMANCE/PERFORMANCE_5.jpg" alt="PERFORMANCE_5"></div>
+			<div class="slide" id="foto6"><img src="PERFORMANCE/PERFORMANCE_6.jpg" alt="PERFORMANCE_6"></div>
+        </div>
+        
+        <div class="botones-nav">
+            <a href="#foto1"></a>
+            <a href="#foto2"></a>
+            <a href="#foto3"></a>
+			<a href="#foto4"></a>
+            <a href="#foto5"></a>
+            <a href="#foto6"></a>
+        </div>
+    </div>
+
+    <div class="texto-performance">
+        <h2 class="titulo-performance">“Poor Viridiana… Whatever Happened to Her?” - 2025</h2>
+        <p>This performance explores the decadence of celebrity and the dehumanization of the public figure through a stripped-down Viridiana, divested of her former glory.
+		Naked beneath a fur coat and wearing grotesque makeup, she inhabits a precarious cardboard structure that symbolizes the collapse of her status. The space is infested
+		with the memory of her past: press clippings from her “golden age,” now crumpled, aged, and stained with a visceral substance resembling vomit that spills from her own
+		mouth, representing the physical and emotional rejection of her own history. Under the constant harassment of a camera flash that photographs her like a wounded animal,
+		Viridiana oscillates within an endless cycle of vulnerability and farce, attempting to reclaim fleeting moments of beauty through automatic poses that quickly disintegrate
+		into gestures of terror and weakness under the audience’s gaze. This piece functions as a raw critique of social voyeurism and the fragility of success, in which the artist
+		becomes trapped in a loop of degradation, where confidence is merely the prelude to yet another fall.</p>
+    </div>
+	</div>
+	
+</body>
+</html>

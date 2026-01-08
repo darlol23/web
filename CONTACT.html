@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+			
+		.contenedor-contacto {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 80vh;
+			text-align: center;}
+			
+		.img-contacto {
+			width: 150px;
+			height: auto;
+			margin-bottom: 5px;}
+			
+		.email-contacto {
+			font-family: 'Inter', sans-serif;
+			font-size: 18px;
+			font-weight: bold;
+			letter-spacing: 2px;}
+			
+		.redes-sociales {
+            display: flex;
+            gap: 55px;
+            justify-content: center;
+			margin-top: 10px}
+
+        .redes-sociales img {
+            width: 25px;
+            height: auto;
+            display: block;}
+			
+		@media (max-width: 768px){
+    .cajatítulo {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-top: 100px;
+        align-items: center;
+        position: relative;
+        gap: 20px;}
+
+    .izquierda, .derecha {
+        display: contents;}
+
+    .izquierda p:nth-of-type(1) { order: 1; }
+    .izquierda p:nth-of-type(2) { order: 2; }
+    .derecha p { order: 3; }
+    .desplegable { order: 4; }
+
+    .izquierda p a, .derecha p a, .desplegable p b {
+        padding: 0;
+        margin: 0;}
+
+    .izquierda p, .derecha p, .desplegable p {
+        margin: 0;
+        padding: 0; 
+        line-height: 1;
+        display: flex;
+        justify-content: center;}
+
+    .logo-viridiana {
+        position: absolute;
+        top: 20px;
+        height: 60px;
+        left: 50%;
+        transform: translateX(-50%);}
+
+    .contenido-desplegable {
+        position: relative; 
+        display: none; 
+        width: 100%;
+        transform: none;
+        left: 0;
+        padding-top: 10px;}
+        
+    .desplegable:active .contenido-desplegable,
+    .desplegable:hover .contenido-desplegable {
+        display: block;}
+
+    .contenedor-contacto {
+        min-height: 95vh; 
+        justify-content: center;
+		padding-bottom: 100px;}
+		
+	.redes-sociales img {
+        width: 45px;
+		margin-top: 10px;}
+
+    .img-contacto {
+        width: 180px;}}
+			
+		 </style>
+</head>
+<body>
+
+    <div class="cajatítulo">
+        <div class="izquierda">
+            <p><a href="ABOUT.html">ABOUT</a></p>
+            <div class="desplegable">
+                <p><b>ARTWORKS</b></p>
+                <div class="contenido-desplegable">
+                    <a href="GRAPHIC_ART.html">GRAPHIC_ART</a>
+                    <a href="PERFORMANCE.html">PERFORMANCE</a>
+                </div>
+            </div>
+            <p><a href="EVENTS.html">EVENTS</a></p>
+        </div>
+        <div class="centro"><a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a></div>
+        <div class="derecha">
+            <p><a href="CONTACT.html">CONTACT</a></p>
+        </div>
+    </div>
+	
+	<br><br><br><br><br><br>
+
+	<div class="contenedor-contacto">
+	
+		<img src="CONTACT/VIRI_CONTACT.png" alt="Imagen Contacto" class="img-contacto">
+		
+		<p class="email-contacto">viridianalmao@gmail.com</p>
+		
+		<div class="redes-sociales">
+        <a href="https://www.instagram.com/viridianalmao/" target="_blank">
+            <img src="CONTACT/ICONO_INSTAGRAM.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@shanniiss?lang=es" target="_blank">
+            <img src="CONTACT/ICONO_TIKTOK.png" alt="TikTok">
+        </a>
+        <a href="mailto:viridianalmao@gmail.com">
+            <img src="CONTACT/ICONO_CORREO_2.png" alt="Correo">
+        </a>
+    </div>
+	</div>
+
+</body>
+</html>

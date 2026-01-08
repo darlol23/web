@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+
+        .cajah1 {
+            background-color: transparent;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            min-height: 100px;
+            box-sizing: border-box;
+            font-family: 'Ballet', cursive;
+            font-size: 159px;
+            text-transform: none;
+            margin-top: 300px;
+            line-height: 0.8;
+            position: relative;
+            z-index: 2;
+            font-weight: normal;}
+
+        .contenedor-carrusel {
+            width: 100%;
+            margin-top: -41px;
+            overflow: hidden;
+            background-color: transparent;
+            position: relative;
+            z-index: 1;}
+
+        .carrusel-recorrido {
+            display: flex;
+            width: 3000px;
+            animation: scroll-automatico 30s linear infinite; }
+
+        .carrusel-recorrido img {
+            width: 300px;
+            height: auto;
+            object-fit: cover;}
+
+        @keyframes scroll-automatico {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1500px); }}
+
+        .texto-about {
+            width: 100%;
+            max-width: 900px;
+            padding: 0 20px;
+            margin: 100px auto;
+            background-color: transparent;
+            text-align: left;}
+
+        .titulo-about {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: black;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            padding: 0;}
+
+        .texto-about p {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: black;
+            text-align: left;
+            padding: 0px;
+            margin-bottom: 20px;}
+
+		@media (max-width: 768px) {
+		.contenedor-carrusel {
+			width: 100%;
+			overflow: hidden;
+			margin-top: -41px;
+			position: relative;}
+
+		.carrusel-recorrido {
+			display: flex;
+			width: max-content;
+			animation: scroll-automatico-movil 20s linear infinite;}
+
+		.carrusel-recorrido img {
+			width: 200px !important;
+			height: auto;
+			flex-shrink: 0;}
+
+		@keyframes scroll-automatico-movil {
+			0% { transform: translateX(0); }
+			100% { transform: translateX(-1000px); }}
+
+		.cajah1 {
+			font-size: 60px;
+			margin-top: 200px;
+			padding: 0 10px;
+			text-align: center;}
+	
+		.cajatítulo {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			padding-top: 100px;
+			align-items: center;
+			position: relative;
+			gap: 20px;}
+
+		.izquierda, .derecha {
+        display: contents;}
+
+		.izquierda p:nth-of-type(1) { order: 1; }
+		.izquierda p:nth-of-type(2) { order: 2; }
+		.derecha p { order: 3; }
+		.desplegable { order: 4; }
+
+		.izquierda p a, .derecha p a, .desplegable p b {
+			padding: 0;
+			margin: 0;}
+
+		.izquierda p, .derecha p, .desplegable p {
+			margin: 0; 
+			padding: 0; 
+			line-height: 1;
+			display: flex;
+			justify-content: center;}
+
+		.logo-viridiana {
+			position: absolute;
+			top: 20px;
+			height: 60px;
+			left: 50%;
+			transform: translateX(-50%);}
+
+		.contenido-desplegable {
+			position: relative; 
+			display: none; 
+			width: 100%;
+			transform: none;
+			left: 0;
+			padding-top: 10px;}
+			
+		.desplegable:active .contenido-desplegable,
+		.desplegable:hover .contenido-desplegable {
+			display: block;}
+
+		.texto-about {
+			width: auto;
+			max-width: 900px;
+			padding: 0 20px;
+			margin: 50px auto;
+			text-align: left;}
+
+		.texto-about p {
+			font-size: 11px;
+			line-height: 1.6;
+			margin-bottom: 20px;}}
+
+    </style>
+</head>
+<body>
+
+    <div class="cajatítulo">
+        <div class="izquierda">
+            <p><a href="ABOUT.html">ABOUT</a></p>
+            <div class="desplegable">
+                <p><b>ARTWORKS</b></p>
+                <div class="contenido-desplegable">
+                    <a href="GRAPHIC_ART.html">GRAPHIC ART</a>
+                    <a href="PERFORMANCE.html">PERFORMANCE</a>
+                </div>
+            </div>
+            <p><a href="EVENTS.html">EVENTS</a></p>
+        </div>
+        <div class="centro">
+            <a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a>
+        </div>
+        <div class="derecha">
+            <p><a href="CONTACT.html">CONTACT</a></p>
+        </div>
+    </div>
+
+    <h1 class="cajah1">Who The Fuck is Viridiana</h1>
+
+    <div class="contenedor-carrusel">
+        <div class="carrusel-recorrido">
+            <img src="ABOUT/CAKE_1.jpg" alt="Obra_1">
+            <img src="ABOUT/CAKE_2.jpg" alt="Obra_2">
+            <img src="ABOUT/CAKE_3.jpg" alt="Obra_3">
+            <img src="ABOUT/CAKE_4.jpg" alt="Obra_4">
+            <img src="ABOUT/CAKE_5.jpg" alt="Obra_5">
+            <img src="ABOUT/CAKE_1.jpg" alt="Obra_1">
+            <img src="ABOUT/CAKE_2.jpg" alt="Obra_2">
+            <img src="ABOUT/CAKE_3.jpg" alt="Obra_3">
+            <img src="ABOUT/CAKE_4.jpg" alt="Obra_4">
+            <img src="ABOUT/CAKE_5.jpg" alt="Obra_5">
+        </div>
+    </div>
+
+    <div class="texto-about">
+        <h2 class="titulo-about">Bio & Style</h2>
+        <p>All the way from Aragón, Spain, Viridiana is an artist who produces a wide variety of works. Her practice is rooted in constant cross-dressing, which remains inseparable from Darío—the person behind the drag. With a background in art and design, and currently studying Design at UCM University in Madrid, she creates graphic pieces in which she is always the main character. Each image tells a story that belongs to Viridiana’s universe. She has been performing in drag for over three years, during which time her artistic identity has continued to evolve.</p>
+        <p>It’s almost as if Viridiana is Darío’s muse—but they are, quite literally, the same person. This universe is often unpleasant and unsettling, filled with scatological and repulsive elements like insects, and infused with surreal concepts and imagery. Despite the harsh and grotesque themes, her work does not exclude comedy, sarcasm, or absurdity—an approach reminiscent of classic surrealism.</p>
+        <p>In addition to her visual work, she also performs live, creating performances with similar themes that incorporate acting and scenography.</p>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

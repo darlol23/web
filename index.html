@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+
+			.seccion-imagen {
+				position: relative;
+				height: 100vh;
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				flex-direction: column;}
+
+			.foto1 { background-image: url('INDEX/VIRI 1.jpg');}
+			.foto2 { background-image: url('INDEX/VIRI 2.jpg');}
+			.foto3 { background-image: url('INDEX/VIRI 3.jpg');}
+
+			.cajapie {
+				background-color: #dcd7cc;
+				padding: 5px;
+				display: flex;
+				align-items: flex-end; 
+				justify-content: space-between;
+				min-height: 180px;
+				box-sizing: border-box;}
+
+			.cajapie-logo {
+				display: flex;
+				align-items: flex-end;}
+
+			.logo-viridiana-cajapie {
+				height: 80px; 
+				width: auto;
+				margin: 0;
+				display: block;}
+				
+			.cajapie-columnas {
+				display: flex;
+				gap: 100px;
+				padding-right: 20px}
+
+			.columna-info {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				font-size: 11px;
+				text-transform: uppercase;
+				margin-bottom: 20px;}
+				
+			.columna-info a {
+				text-decoration: none; 
+				color: black;}
+				
+			.columna-info a:hover {
+				color: #555555; 
+				cursor: pointer; 
+				transition: 0.5s;}
+				
+			.enlace-texto-imágenes {
+				padding: 20px 20px; 
+				position: absolute;
+				color: white !important;
+				text-decoration: none;
+				font-weight: bold;}
+			
+			.enlace-texto-imágenes a {
+				font-family: 'Inter', sans-serif;
+				font-size: 14px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: white;
+				text-decoration: none;
+				letter-spacing: 1px;}
+				
+			@media (max-width: 768px) {
+			.cajatítulo {
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			padding-top: 100px;
+			align-items: center;
+			position: relative;
+			gap: 20px;}
+
+			.izquierda, .derecha {
+			display: contents;}
+
+			.izquierda p:nth-of-type(1) { order: 1; }
+			.izquierda p:nth-of-type(2) { order: 2; }
+			.derecha p { order: 3; }
+			.desplegable { order: 4; }
+
+			.izquierda p a, .derecha p a, .desplegable p b {
+				padding: 0;
+				margin: 0;}
+
+			.izquierda p, .derecha p, .desplegable p {
+				margin: 0;
+				padding: 0; 
+				line-height: 1;
+				display: flex;
+				justify-content: center;}
+
+			.logo-viridiana {
+				position: absolute;
+				top: 20px;
+				height: 60px;
+				left: 50%;
+				transform: translateX(-50%);}
+
+			.contenido-desplegable {
+				position: relative; 
+				display: none; 
+				width: 100%;
+				transform: none;
+				left: 0;
+				padding-top: 10px;}
+			
+		.desplegable:active .contenido-desplegable,
+		.desplegable:hover .contenido-desplegable {
+			display: block;}}
+
+		</style>
+	</head>
+	<body>
+
+		<div class="seccion-imagen foto1">
+			<div class="cajatítulo">
+				<div class="izquierda">
+					<p><a href="ABOUT.html">ABOUT</a></p>
+				<div class="desplegable">
+						<p><b>ARTWORKS</b></p>
+						<div class="contenido-desplegable">
+							<a href="GRAPHIC_ART.html">GRAPHIC ART</a>
+							<a href="PERFORMANCE.html">PERFORMANCE</a>
+						</div>
+				</div>
+					<p><a href="EVENTS.html">EVENTS</a></p>
+				</div>
+				<div class="centro">
+					
+				</div>
+				<div class="derecha">
+					<p><a href="CONTACT.html">CONTACT</a></p>
+				</div>
+			</div>
+			<a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a>
+		</div>
+
+		<a href="GRAPHIC_ART.html" style="text-decoration: none;">
+			<div class="seccion-imagen foto2">
+				<div class="enlace-texto-imágenes">
+					<p>GRAPHIC ART</p>
+				</div>
+			</div>
+		</a>
+		
+		<a href="PERFORMANCE.html" style="text-decoration: none;">
+			<div class="seccion-imagen foto3">
+				<div class="enlace-texto-imágenes"> 
+					<p>PERFORMANCE</p>
+				</div>
+			</div>
+		</a>
+
+		<div class="cajapie">
+			<div class="cajapie-logo">
+				<a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana-cajapie"></a>
+			</div>
+			<div class="cajapie-columnas">
+        
+				<div class="columna-info">
+					<a href="ABOUT.html">ABOUT</a>
+					<a href="GRAPHIC_ART.html">GRAPHIC ART</a>
+					<a href="PERFORMANCE.html">PERFORMANCE</a>
+					<a href="EVENTS.html">EVENTS</a>
+				</div>
+
+				<div class="columna-info">
+					<a href="https://www.instagram.com/viridianalmao/">INSTAGRAM</a>
+					<a href="https://www.tiktok.com/@shanniiss?lang=es">TIKTOK</a>
+					<a href="CONTACT.html">CONTACT</a>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

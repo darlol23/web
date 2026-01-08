@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap" rel="stylesheet">
+
+    <title>viridiana.lmao</title>
+    <style>
+        * {font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dcd7cc;}
+
+        .cajatítulo {
+            background-color: transparent;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10;
+			top:0;}
+
+        .izquierda p a, .derecha p a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: bold;
+            padding: 10px;
+            text-decoration: none;
+            color: black;}
+
+        .izquierda p a:hover, .derecha p a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .izquierda {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+            justify-content: flex-start;}
+
+        .centro {
+            flex: 0 0 auto;
+            width: 100px;
+            display: flex;
+            justify-content: center;}
+
+        .derecha {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;}
+
+        .logo-viridiana {
+            height: 80px;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            z-index: 100;
+			left: 50%;
+			transform: translateX(-50%)}
+
+        .desplegable {
+            position: relative;
+            display: inline-block;}
+
+        .contenido-desplegable {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            min-width: 160px;
+            z-index: 100;
+            padding-top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;}
+
+        .contenido-desplegable a {
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;}
+
+        .contenido-desplegable a:hover {
+            color: #880808;
+            cursor: pointer;
+            transition: 0.5s;}
+
+        .desplegable:hover .contenido-desplegable {
+            display: block;}
+			
+		.cajah1 {
+            background-color: transparent;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            min-height: 100px;
+            box-sizing: border-box;
+            font-family: 'Ballet', cursive;
+            font-size: 159px;
+            text-transform: none;
+            margin-top: 300px;
+            line-height: 0.8;
+            position: relative;
+            z-index: 2;
+            font-weight: normal;}
+		
+		.galeria-container {
+			column-count: 4;          
+			column-gap: 20px;        
+			padding: 80px;}
+
+		.arte-item {
+			opacity: 0;
+			transform: translateY(30px) scale(0.9); 
+			transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), 
+						transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+			display: inline-block;   
+			width: 100%;              
+			margin-bottom: 40px;     
+			cursor: pointer;
+			break-inside: avoid;
+			filter: blur(10px);}
+			
+		.arte-item:nth-child(2n) { transition-delay: 0.1s; }
+		.arte-item:nth-child(3n) { transition-delay: 0.2s; }
+		.arte-item:nth-child(4n) { transition-delay: 0.3s; }
+			
+			
+		.arte-item.aparecer {
+			opacity: 1;
+			transform: translateY(0); 
+			filter: blur(0);}
+
+		.arte-item:hover {
+				transform: scale(1.03);}
+
+		.arte-item img {
+				width: 100%;
+				height: auto;
+				display: block;}
+
+		.modal {display: none; 
+				position: fixed;
+				z-index: 1000;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(220, 215, 204, 0.7);
+				backdrop-filter: blur(15px);
+				-webkit-backdrop-filter: blur(15px);}
+
+		.modal-contenido {
+				margin: auto;
+				display: block;
+				max-width: 80%;
+				max-height: 80vh;
+				margin-top: 10vh;}
+
+		.cerrar {
+				position: absolute;
+				top: 20px;
+				right: 35px;
+				color: black;
+				font-size: 40px;
+				font-weight: bold;
+				cursor: pointer;}
+				
+		@media (max-width: 768px){
+		
+		.galeria-container {
+				column-count: 2;
+				column-gap: 10px;
+				padding: 10px;
+				margin-top: 0;}
+
+		.arte-item {
+			margin-bottom: 10px;}
+			
+			.cajah1 {
+				font-size: 60px;
+				margin-top: 200px;
+				padding: 0 10px;
+				text-align: center;}
+		
+			.cajatítulo {
+				display: flex;
+				flex-direction: column;
+				height: auto;
+				padding-top: 100px;
+				align-items: center;
+				position: relative;
+				gap: 20px;}
+
+			.izquierda, .derecha {
+			display: contents;}
+
+			.izquierda p:nth-of-type(1) { order: 1; }
+			.izquierda p:nth-of-type(2) { order: 2; }
+			.derecha p { order: 3;}
+			.desplegable { order: 4;}
+
+			.izquierda p a, .derecha p a, .desplegable p b {
+				padding: 0;
+				margin: 0;}
+
+			.izquierda p, .derecha p, .desplegable p {
+				margin: 0;
+				padding: 0;
+				line-height: 1;
+				display: flex;
+				justify-content: center;}
+
+			.logo-viridiana {
+				position: absolute;
+				top: 20px;
+				height: 60px;
+				left: 50%;
+				transform: translateX(-50%);}
+
+			.contenido-desplegable {
+				position: relative; 
+				display: none; 
+				width: 100%;
+				transform: none;
+				left: 0;
+				padding-top: 10px;}
+				
+			.desplegable:active .contenido-desplegable,
+			.desplegable:hover .contenido-desplegable {
+				display: block;}
+				
+			.modal-contenido {
+				max-width: 95%;
+				margin-top: 20vh }}                       
+		
+	 </style>
+</head>
+<body>
+
+    <div class="cajatítulo">
+        <div class="izquierda">
+            <p><a href="ABOUT.html">ABOUT</a></p>
+            <div class="desplegable">
+                <p><b>ARTWORKS</b></p>
+                <div class="contenido-desplegable">
+                    <a href="GRAPHIC_ART.html">GRAPHIC_ART</a>
+                    <a href="PERFORMANCE.html">PERFORMANCE</a>
+                </div>
+            </div>
+            <p><a href="EVENTS.html">EVENTS</a></p>
+        </div>
+        <div class="centro">
+        <a href="index.html"><img src="LogoViridianaLmao.png" alt="Logo Viridiana" class="logo-viridiana"></a></div>
+        <div class="derecha"><p><a href="CONTACT.html">CONTACT</a></p></div>
+    </div>
+	
+	<h1 class="cajah1">Graphic Art</h1>
+	
+	<div class="galeria-container">
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Artis.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/uwu.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/BRAINROT.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/IRefuse.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Yatelodije.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/pleaseretreat.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/EATSHIT.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/ItsOver.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/2014.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Picadura.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/esto.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/CAKE.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Vegan.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Believe.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/NUMB.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/MyMother.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Fit.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Great-masturbator.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Miku.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/HOHOHO.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Whatdoes.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Vi0lación.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/When.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Platero.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Science.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/DRUGGEDON.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/life.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/Lobotomy.jpg" alt="Descripción de la obra">
+		</div>
+		
+		<div class="arte-item" onclick="abrirModal(this)">
+			<img src="GRAPHIC_ART/sueñcsdprlvurlo1segantdddespertar.jpg" alt="Descripción de la obra">
+		</div>
+
+    </div>
+
+	<div id="modal-visor" class="modal" onclick="cerrarModal()">
+		<span class="cerrar">&times;</span>
+		<img class="modal-contenido" id="img-ampliada" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Imagen ampliada">
+		<div id="caption"></div>
+	</div>
+
+		<script>
+    
+		document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aparecer');
+                    observer.unobserve(entry.target);}});}, observerOptions);
+
+        const elementos = document.querySelectorAll('.arte-item');
+        elementos.forEach(el => observer.observe(el));});
+
+		function abrirModal(elemento) {
+        var modal = document.getElementById("modal-visor");
+        var imgModal = document.getElementById("img-ampliada");
+        var imagenClicada = elemento.getElementsByTagName('img')[0];
+        
+        modal.style.display = "block";
+        imgModal.src = imagenClicada.src;}
+
+		function cerrarModal() {
+        document.getElementById("modal-visor").style.display = "none";}
+</script>
+
+</body>
+</html>
